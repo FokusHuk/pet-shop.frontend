@@ -1,8 +1,9 @@
 import React from 'react';
+import MainForm from './components/MainForm';
 
 function App() {
   return (
-    <h1>New app</h1>
+    <MainForm />
   );
 }
 

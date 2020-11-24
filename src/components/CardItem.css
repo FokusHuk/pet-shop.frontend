@@ -1,0 +1,23 @@
+.card-item {
+    background: #a9e9e0c4;
+    border: 2px solid #071406;
+    border-radius: 10px;
+    margin: 2%;
+}
+
+.card-item-name {
+    float: left;
+    text-align: left;
+    padding: 2%;
+}
+
+.card-item-price {
+    float: right;
+    text-align: right;
+    padding: 2%;
+}
+
+.card-item-description {
+    margin-top: 15%;
+    padding: 2%;
+}

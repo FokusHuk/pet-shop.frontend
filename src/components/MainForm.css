@@ -1,0 +1,51 @@
+.stats {
+    float: left;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.balance {
+    background: #f9fbe7;
+    border: 3px solid #e7b66c;
+    border-radius: 10px;
+    width: 20vh;
+    height: 2vh;
+    padding: 2vh;
+}
+
+.cost {
+    background: #f9fbe7;
+    border: 3px solid #e7b66c;
+    border-radius: 10px;
+    width: 20vh;
+    height: 2vh;
+    padding: 2vh;
+}
+
+.buy-btn {
+    margin-top: 5%;
+    width: 25vh;
+    height: 6vh;
+}
+
+.card {
+    float: left;
+    background: #f9fbe7;
+    border: 3px solid #e7b66c;
+    border-radius: 10px;
+    width: 35vh;
+    height: 60vh;
+    margin-top: 5%;
+    margin-left: 5%;
+    padding: 1%;
+}
+
+.card-title {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card-content {
+    overflow: auto;
+    height: 50vh;
+}
