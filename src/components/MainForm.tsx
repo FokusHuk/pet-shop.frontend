@@ -14,17 +14,36 @@ function MainForm() {
 
     const changeState = async (id: string, targetId: string) => {
         if (targetId === "cart") {
-            addToCart(id);
+            await addToCart(id);
+            const filteredPets = pets.filter(pet => pet.id != id);
+            const movedPet = pets.filter(pet => pet.id == id);
+            const newCartPets = cartPets.concat(movedPet);
+            setPets(filteredPets);
+            setCartPets(newCartPets);
         }
         else {
-            removeFromCart(id);
+            await removeFromCart(id);
+            const filteredCartPets = cartPets.filter(pet => pet.id != id);
+            const movedPet = cartPets.filter(pet => pet.id == id);
+            const newPets = pets.concat(movedPet);
+            setPets(newPets);
+            setCartPets(filteredCartPets);
         }
-        window.location.reload();
+
+        const { totalCost } = await getCost();
+        setCost(totalCost);
     }
 
     const onClickBuyBtn = async () => {
         await buyPets();
-        window.location.reload();
+
+        const { totalCost } = await getCost();
+        setCost(totalCost);
+        
+        const { balance } = await getBalance();
+        setBalance(balance);
+
+        setCartPets([]);
     }
 
     useEffect(() => {

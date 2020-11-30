@@ -20,13 +20,7 @@ export const Card: React.FC<CardProps> = ({ title, pets, id, onChangeState }) =>
         const id = localStorage.getItem("dndId");
         localStorage.removeItem("dndId");
         if (id === null) return;
-
-        const draggableElement = document.getElementById(id);
-        const dropzone = document.getElementById(event.currentTarget.id);
-        if (dropzone === null) return;
-
-        dropzone.appendChild(draggableElement as Node);
-
+        
         onChangeState(id, event.currentTarget.id);
     }
 
@@ -35,11 +29,9 @@ export const Card: React.FC<CardProps> = ({ title, pets, id, onChangeState }) =>
             <p className='card-title'>{title}</p>
             <hr />
             <div className='card-content' id={id} onDragOver={onDragOver} onDrop={onDrop}>
-                {pets.map(pet => {
-                    return (
-                        <CardItem pet={pet} />
-                    )
-                })}
+                 {
+                    pets.map(pet => <CardItem pet={pet} {...pet}/>)
+                 } 
             </div>
         </div>
     )
