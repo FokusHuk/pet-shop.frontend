@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from './Card';
 import { getPets, getBalance, getCartPets, getCost, addToCart, removeFromCart, buyPets } from "../api";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { IPet } from '../interfaces';
 import './MainForm.css';
 
@@ -15,16 +15,16 @@ function MainForm() {
     const changeState = async (id: string, targetId: string) => {
         if (targetId === "cart") {
             await addToCart(id);
-            const filteredPets = pets.filter(pet => pet.id != id);
-            const movedPet = pets.filter(pet => pet.id == id);
+            const filteredPets = pets.filter(pet => pet.id !== id);
+            const movedPet = pets.filter(pet => pet.id === id);
             const newCartPets = cartPets.concat(movedPet);
             setPets(filteredPets);
             setCartPets(newCartPets);
         }
         else {
             await removeFromCart(id);
-            const filteredCartPets = cartPets.filter(pet => pet.id != id);
-            const movedPet = cartPets.filter(pet => pet.id == id);
+            const filteredCartPets = cartPets.filter(pet => pet.id !== id);
+            const movedPet = cartPets.filter(pet => pet.id === id);
             const newPets = pets.concat(movedPet);
             setPets(newPets);
             setCartPets(filteredCartPets);
